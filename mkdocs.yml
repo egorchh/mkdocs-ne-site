@@ -1,1 +1,7 @@
-site_name: My Docs
+site_name: MkDocs
+
+nav:
+  - Default Page: index.md
+  - Microservices: microservices.md
+
+theme: readthedocs
