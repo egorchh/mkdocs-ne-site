@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <title>Microservices - MkDocs</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Microservices";
+        var mkdocs_page_input_path = "microservices.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href=".." class="icon icon-home"> MkDocs
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="..">Default Page</a>
+                </li>
+              </ul>
+              <ul class="current">
+                <li class="toctree-l1 current"><a class="reference internal current" href="#">Microservices</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#_2">Введение</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#_3">Основные принципы микросервисной архитектуры</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#_4">Когда следует предпочесть микросервисы монолитной архитектуре</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#_5">Когда микросервисы не подходят</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#_6">Сравнение сильных и слабых сторон</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#_7">Заключение</a>
+    </li>
+    </ul>
+                </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="..">MkDocs</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".." class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">Microservices</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="_1">Лучшие практики использования микросервисной архитектуры в информационных системах</h1>
+<h2 id="_2">Введение</h2>
+<p>Микросервисная архитектура (MSA) получила широкое распространение благодаря своей способности решать ограничения традиционных монолитных систем. Однако MSA не подходит для каждого проекта. В этом эссе рассматриваются основные принципы микросервисной архитектуры, ситуации, когда её предпочтительнее использовать вместо монолита, а также случаи, когда MSA может быть неподходящим решением.</p>
+<h2 id="_3">Основные принципы микросервисной архитектуры</h2>
+<ol>
+<li><strong>Независимость компонентов</strong>: Микросервисы должны быть слабо связаны, что позволяет каждому сервису работать независимо. Это увеличивает гибкость системы и снижает зависимость между компонентами.</li>
+<li><strong>Принцип единой ответственности</strong>: Каждый сервис должен отвечать за одну конкретную бизнес-функцию, что упрощает его поддержку и масштабирование.</li>
+<li><strong>Независимая развертка</strong>: Микросервисы должны развертываться автономно. Это требует внедрения непрерывной интеграции и доставки (CI/CD) для быстрой доставки обновлений.</li>
+<li><strong>Автономные команды</strong>: Каждая команда отвечает за конкретный микросервис и имеет автономию в его разработке и развертывании, что ускоряет процессы разработки.</li>
+<li><strong>Децентрализованное управление данными</strong>: Каждый микросервис должен управлять своей собственной базой данных, что снижает риски создания узких мест в системе.</li>
+<li><strong>Умные конечные точки, простые каналы</strong>: Логика приложения должна находиться внутри микросервисов, а коммуникация между ними должна быть простой и легковесной (например, через RESTful API или очереди сообщений).</li>
+<li><strong>Автоматизация</strong>: Автоматизация управления инфраструктурой, тестирования и мониторинга необходима для управления сложностями, вызванными большим количеством независимых сервисов.</li>
+</ol>
+<h2 id="_4">Когда следует предпочесть микросервисы монолитной архитектуре</h2>
+<ul>
+<li><strong>Требования к масштабированию</strong>: Если необходимо масштабировать отдельные части системы независимо, микросервисы будут лучшим решением. Например, в e-commerce системе разные сервисы могут обрабатывать инвентарь, платежи и учетные записи пользователей, каждый из которых масштабируется в зависимости от нагрузки.</li>
+<li><strong>Сложность системы</strong>: В случае разработки сложных систем, где компоненты должны эволюционировать независимо, микросервисы обеспечат большую гибкость.</li>
+<li><strong>Частые обновления и развертки</strong>: MSA идеально подходит для сред, где требуется непрерывная доставка и частые обновления. Обновления можно вносить без необходимости останавливать всю систему.</li>
+<li><strong>Разнообразие технологий</strong>: Микросервисная архитектура позволяет использовать разные технологические стеки для каждого сервиса. Это удобно, если требуется применение различных специализированных технологий.</li>
+</ul>
+<h2 id="_5">Когда микросервисы не подходят</h2>
+<ul>
+<li><strong>Маленькие и простые приложения</strong>: Если приложение небольшое, монолитная архитектура может оказаться более подходящей, поскольку микросервисы вводят дополнительные сложности, которые могут быть излишними для простых проектов.</li>
+<li><strong>Жесткие сроки и ограниченные ресурсы</strong>: Разработка и управление микросервисами требуют значительного времени и ресурсов. Если необходимо быстрое и экономичное решение, монолитная архитектура может быть предпочтительнее.</li>
+<li><strong>Высокая частота коммуникаций</strong>: MSA требует четко определённых протоколов взаимодействия между сервисами. Для систем, где компоненты сильно зависят друг от друга и часто обмениваются данными, управление взаимодействием между сервисами может стать сложным и неоправданным.</li>
+</ul>
+<h2 id="_6">Сравнение сильных и слабых сторон</h2>
+<table>
+<thead>
+<tr>
+<th>Аспект</th>
+<th>Микросервисная архитектура</th>
+<th>Монолитная архитектура</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Масштабируемость</strong></td>
+<td>Легко масштабировать отдельные сервисы</td>
+<td>Масштабировать сложнее, требуется масштабирование всего приложения</td>
+</tr>
+<tr>
+<td><strong>Гибкость</strong></td>
+<td>Можно использовать разные технологии для каждого сервиса</td>
+<td>Ограничена одним технологическим стеком</td>
+</tr>
+<tr>
+<td><strong>Развертывание</strong></td>
+<td>Независимая развертка сервисов</td>
+<td>Требуется перезапуск всего приложения при обновлении</td>
+</tr>
+<tr>
+<td><strong>Изоляция сбоев</strong></td>
+<td>Сбой одного сервиса не влияет на всю систему</td>
+<td>Сбой одной части может привести к сбою всей системы</td>
+</tr>
+<tr>
+<td><strong>Сложность коммуникаций</strong></td>
+<td>Требуются сложные механизмы взаимодействия сервисов</td>
+<td>Простая внутренняя коммуникация внутри одного приложения</td>
+</tr>
+<tr>
+<td><strong>Сложность разработки</strong></td>
+<td>Требуется координация между командами и сложный DevOps</td>
+<td>Разработка проще в небольших командах</td>
+</tr>
+<tr>
+<td><strong>Стоимость</strong></td>
+<td>Высокие затраты на начальный запуск и поддержку</td>
+<td>Меньшие затраты на запуск и настройку</td>
+</tr>
+<tr>
+<td><strong>Производительность</strong></td>
+<td>Могут возникать задержки из-за сетевых вызовов между сервисами</td>
+<td>Обычно быстрее, так как все работает в одном процессе</td>
+</tr>
+<tr>
+<td><strong>Поддержка</strong></td>
+<td>Легче поддерживать и обновлять отдельные сервисы</td>
+<td>Сложнее вносить изменения из-за тесной связи компонентов</td>
+</tr>
+</tbody>
+</table>
+<h2 id="_7">Заключение</h2>
+<p><strong>Микросервисная архитектура</strong> — мощный инструмент, который решает многие проблемы монолитных систем, особенно в больших, сложных приложениях, требующих масштабируемости и гибкости. Однако она вносит дополнительные сложности и высокие затраты на эксплуатацию. MSA лучше всего подходит для крупных проектов, где есть необходимость в независимых компонентах. В то же время, для простых проектов с ограниченными ресурсами монолитный подход может оказаться более подходящим. Решение между микросервисами и монолитной архитектурой требует тщательной оценки размера проекта, его сложности и долгосрочных целей.</p>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href=".." class="btn btn-neutral float-left" title="Default Page"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href=".." style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>
