@@ -1,0 +1,47 @@
+name: Build and Deploy
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.x'
+
+      - name: Install dependencies
+        run: |
+          pip install mkdocs mkdocs-material
+
+      - name: Build site
+        run: mkdocs build --clean
+
+      - name: HTML Validation
+        run: |
+          pip install html5validator
+          html5validator --root site
+
+      - name: Minify HTML
+        run: |
+          pip install htmlmin
+          find site/ -name "*.html" -exec htmlmin --remove-comments --remove-empty-space {} -o {} \;
+
+      - name: PostCSS processing
+        run: |
+          npm install postcss postcss-cli autoprefixer
+          postcss overrides/main.css --use autoprefixer -o overrides/main.min.css
+
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./site
