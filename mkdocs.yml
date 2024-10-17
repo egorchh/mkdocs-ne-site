@@ -1,8 +1,8 @@
 site_name: MkDocs
 
 nav:
-  - Главная: docs/index.md
-  - Микросервисы: docs/microservices.md
+  - Главная: index.md
+  - Микросервисы: microservices.md
 
 theme:
   name: null
