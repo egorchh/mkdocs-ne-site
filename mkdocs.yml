@@ -1,0 +1,9 @@
+site_name: MkDocs
+
+nav:
+  - Default Page: index.md
+  - Microservices: microservices.md
+
+theme:
+  name: null
+  custom_dir: overrides
