@@ -4,4 +4,6 @@ nav:
   - Default Page: index.md
   - Microservices: microservices.md
 
-theme: readthedocs
+theme:
+  name: null
+  custom_dir: overrides

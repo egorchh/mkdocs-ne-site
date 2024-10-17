@@ -1,6 +1,6 @@
-# Welcome to MkDocs dude
+# Добро пожаловать на мой сайт
 
-For full documentation visit [mkdocs.org](https://www.mkdocs.org).
+Этот сайт использует кастомную тему, созданную на основе HTML, CSS и Jinja2 для MkDocs.
 
 ## Commands
 
@@ -14,4 +14,4 @@ For full documentation visit [mkdocs.org](https://www.mkdocs.org).
     mkdocs.yml    # The configuration file.
     docs/
         index.md  # The documentation homepage.
-        ...       # Other markdown pages, images and other files.
+        microservices.md  # Other markdown pages, images and other files.
