@@ -38,7 +38,7 @@ jobs:
       - name: PostCSS processing
         run: |
           npm install postcss postcss-cli autoprefixer
-          postcss overrides/main.css --use autoprefixer -o overrides/main.min.css
+          npx postcss overrides/main.css --use autoprefixer -o overrides/main.min.css
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
