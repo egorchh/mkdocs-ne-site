@@ -2,8 +2,8 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #000;
-    color: #fff;
+    background-color: white;
+    color: black;
     display: flex;
     flex-direction: column;
     min-height: 100vh;
@@ -12,7 +12,6 @@ body {
 header {
     background-color: #000;
     color: #fff;
-    padding: 20px 0;
 }
 
 .header-content {
@@ -87,8 +86,8 @@ table tr:nth-child(even) {
 footer {
     background-color: #111;
     color: #fff;
-    text-align: center;
-    padding: 40px 0; /* Thicker footer */
+    text-align: left;
+    padding: 40px 20px;
     position: relative;
     width: 100%;
 }
@@ -96,4 +95,46 @@ footer {
 footer p {
     margin: 0;
     font-size: 16px;
+}
+
+.logo-tag {
+    margin-top:-10px;
+    font-size:60px;
+    font-family:arial;
+    color:white;
+}
+
+.logo {
+    top:40%;
+    left:40%;
+    animation:j 2s infinite;
+}
+
+@keyframes j{
+    from{opacity:0;}
+    to {opacity:1;}
+}
+
+.bar {
+    width:150px;
+    height:25px;
+    background-color:white;
+    transform:rotateZ(55deg);
+    transform-origin:left;
+}
+
+.bar:nth-child(1) {
+    margin-left:90px;
+}
+
+.bar:nth-child(2) {
+    margin-left:60px;
+}
+
+.bar:nth-child(3) {
+    margin-left:30px;
+}
+
+.picture{
+    overflow:hidden;
 }
