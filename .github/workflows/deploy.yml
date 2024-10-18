@@ -51,9 +51,6 @@ jobs:
           npm install postcss postcss-cli autoprefixer
           npx postcss site/styles.css --use postcss-import --use postcss-csso --no-map -o site/styles.css
 
-      - name: Run CI Scripts
-        run: npm run ci
-
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
