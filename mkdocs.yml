@@ -10,7 +10,7 @@ theme:
   name: null
   custom_dir: theme
 extra_css:
-  - 'styles.min.css'
+  - 'styles.css'
 extra_javascript:
   - 'script.js'
 
