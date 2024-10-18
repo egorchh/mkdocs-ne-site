@@ -7,50 +7,51 @@
     <meta name="author" content="Egor Podolskiy">
     <title>{% if page.title %}{{ page.title }} - {% endif %}{{ config.site_name }}</title>
     {%- for path in config.extra_css %}
-      <link href="{{ path | url }}" rel="stylesheet">
+    <link href="{{ path | url }}" rel="stylesheet">
     {%- endfor %}
 </head>
 <body>
-    <header>
-        <div class="header-content">
-            <h1>{{ page.title }}</h1>
-            {% if nav|length > 1 %}
-            <nav>
-                <ul class="nav-tabs">
+<header>
+    <div class="header-content">
+        <img src="{{ base_url }}/static/adidas-logo.png" alt="Adidas Logo" height="40px"> <!-- Add the logo -->
+        <h1>{{ page.title }}</h1>
+        {% if nav|length > 1 %}
+        <nav>
+            <ul class="nav-tabs">
                 {% for nav_item in nav %}
-                    {% if nav_item.children %}
-                        <li class="dropdown">
-                            <a href="#" class="dropbtn">{{ nav_item.title }}</a>
-                            <ul class="dropdown-content">
-                            {% for sub_nav_item in nav_item.children %}
-                                <li class="{% if sub_nav_item.active %}current{% endif %}">
-                                    <a href="{{ sub_nav_item.url|url }}">{{ sub_nav_item.title }}</a>
-                                </li>
-                            {% endfor %}
-                            </ul>
+                {% if nav_item.children %}
+                <li class="dropdown">
+                    <a href="#" class="dropbtn">{{ nav_item.title }}</a>
+                    <ul class="dropdown-content">
+                        {% for sub_nav_item in nav_item.children %}
+                        <li class="{% if sub_nav_item.active %}current{% endif %}">
+                            <a href="{{ sub_nav_item.url|url }}">{{ sub_nav_item.title }}</a>
                         </li>
-                    {% else %}
-                        <li class="{% if nav_item.active %}current{% endif %}">
-                            <a href="{{ nav_item.url|url }}">{{ nav_item.title }}</a>
-                        </li>
-                    {% endif %}
+                        {% endfor %}
+                    </ul>
+                </li>
+                {% else %}
+                <li class="{% if nav_item.active %}current{% endif %}">
+                    <a href="{{ nav_item.url|url }}">{{ nav_item.title }}</a>
+                </li>
+                {% endif %}
                 {% endfor %}
-                </ul>
-            </nav>
-            {% endif %}
-        </div>
-    </header>
+            </ul>
+        </nav>
+        {% endif %}
+    </div>
+</header>
 
-    <main>
-        {{ page.content }}
-    </main>
+<main>
+    {{ page.content }}
+</main>
 
-    <footer>
-        <p>Сайт для четкой документации от Егора Подольского</p>
-    </footer>
+<footer>
+    <p>Сайт для четкой документации от Егора Подольского</p>
+</footer>
 
-    {%- for script in config.extra_javascript %}
-      {{ script | script_tag }}
-    {%- endfor %}
+{%- for script in config.extra_javascript %}
+{{ script | script_tag }}
+{%- endfor %}
 </body>
 </html>
