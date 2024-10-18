@@ -1,72 +1,49 @@
-# Мой сайт на GitHub Pages
+# Задание 2. Кастомизация статического сайта (шаблонизация, сборка статики: HTML, CSS, JS)
 
-## Ссылка на сайт:
-https://egorchh.github.io/mkdocs-ne-site/
+На основе результатов выполнения предыдущей работы, кастомизируйте свой собственный сайт, разобравшись в том как возможно использовать свою собственную тему (шаблон для сайта) и создать свой шаблон (на занятии был продемонстрирован пример создания темы и шаблонизации с помощью Jinja2 для mkdocs), выполните сборку сайта с помощью GitHub Actions. 
 
-## Описание проекта
+## Задание: 
 
-Этот проект представляет собой сайт, созданный с использованием MkDocs и кастомной темы на основе HTML, CSS и JS. Для сборки и деплоя использован GitHub Actions.
+1. Создать собственную тему на основе HTML, CSS, JS с использованием или без использования CSS-библиотек таких как Bootstrap, Bulma, фреймворков (например, [Tailwind](https://tailwindcss.com/)), JS-библиотек для разработки фронтэнда (например, React). 
 
-## Этапы выполнения
+2. На основе [репозитория](https://github.com/nzhukov/deploy-ghactions) разработать пайплайн или набор пайплайнов (yml-файл) для тестирования и  сборки статики (HTML, CSS, JS) — фронтэнда сайта, а затем построения собственно самого сайта (интеграции контента в разметке Markdown в шаблон сайта) и деплоя его на GitHub Pages.
 
-1. **Создание кастомной темы**:
-    - Кастомизированы header и footer.
-    - Стилизована главная страница.
-    - Добавлены метаданные для сайта.
+3. Необходимо учесть, что HTML файлы должны валидироваться на корректность, минифицироваться, должна быть предусмотрена сборка с помощью PostCSS (см. [репозиторий](https://github.com/nzhukov/deploy-ghactions)).
 
-2. **Настройка GitHub Actions**:
-    - Валидация и минификация HTML.
-    - Сборка CSS с использованием PostCSS.
-    - Автоматический деплой на GitHub Pages.
+4. Дополнительным этапом (**необязательным**) реализуйте улучшение типографики содержимого сайта (например, используя этот [инструмент](https://github.com/typograf/typograf)). 
 
-## Содержимое workflows/ci.yml:
+Требования: 
 
-```yaml
-name: Build and Deploy yo!
+1. Минимальные требования к теме: наличие кастомного header, footer, а также стилизованной страницы для одной из секций (например, главной страницы). 
 
-on:
-  push:
-    branches:
-      - main
+2. Обязательно добавьте метаданные сайта (название, описание, автор) (тег meta).
 
-jobs:
-  build:
-    runs-on: ubuntu-latest
+3. Сайт должен быть доступен по адресу GitHub Pages. Убедитесь, что все страницы и стили корректно отображаются.
 
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
+## Отчет:
 
-      - name: Set up Python
-        uses: actions/setup-python@v2
-        with:
-          python-version: '3.x'
+**[GitHub Pages](https://cavenikk.github.io/ITMO_web_python/)**
 
-      - name: Install dependencies
-        run: |
-          pip install mkdocs mkdocs-material
+1. В корне проекта создал директорию theme, в которой разместил файлы `main.html`, `styles.css` и `script.js`.
 
-      - name: Build site
-        run: mkdocs build --clean
+2. Наполнил контентом `main.html`, написал стили в `styles.css`. В `script.js` поставил единственный `console.log` для проверки работы JavaScript. 
 
-      - name: HTML Validation
-        run: |
-          pip install html5validator
-          html5validator --root site
+3. Указал в `mkdocs.yml` тему и пути до стилей и скрипта.
 
-      - name: Minify HTML
-        run: |
-          pip install htmlmin
-          find site/ -name "*.html" -exec htmlmin --remove-comments --remove-empty-space {} -o {} \;
+4. Инициализировал проект `Node`, установил `PostCSS` и `HTML Minifier`.
 
-      - name: PostCSS processing
-        run: |
-          npm install postcss postcss-cli autoprefixer
-          npx postcss overrides/main.css --use autoprefixer -o overrides/main.min.css
+5. Указал в `package.json` скрипты, выполняющие минификацию HTML и CSS, а также скрипт `ci`, объединящий эти скрипты.
 
-      - name: Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v3
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./site
-          publish_branch: gh-pages
+6. В корне проекта создал директории `.github` и `.github/workflows`. В последней создал файл `deploy.yml`, в котором указал все необходимые действия, а именно:
+
+    - Установка Python 3.11
+    - Установка mkdocs
+    - Установка Node.js v20
+    - Установка зависимостей npm
+    - Билд статики `mkdocs build`
+    - Запуск CI-скрипта `npm run ci`
+    - Пуш в ветку `github-pages`
+
+7. В настройках репозитория дал права на чтение токена для GitHub Actions.
+
+8. Закоммитил и запушил изменения, и после окончания пайплайнов получил **[ссылку](https://cavenikk.github.io/ITMO_web_python/)**.

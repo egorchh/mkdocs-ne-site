@@ -1,9 +1,19 @@
-site_name: MkDocs
+site_name: Nikita Novikov
+use_directory_urls: true
 
 nav:
   - Главная: index.md
   - Микросервисы: microservices.md
+  - История бренда: adidas-history.md
 
 theme:
   name: null
-  custom_dir: overrides
+  custom_dir: theme
+extra_css:
+  - 'styles.css'
+extra_javascript:
+  - 'script.js'
+
+watch:
+- theme
+- docs

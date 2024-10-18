@@ -1,17 +1,17 @@
-# Это кастомная тема для сайта MkDocs
+# Четкий сайт для четкой доки
 
-Этот сайт использует кастомную тему, созданную на основе HTML, CSS и Jinja2 для MkDocs.
+For full documentation visit [mkdocs.org](https://www.mkdocs.org).
 
-## Commands
+## Commands для четких пацанов
 
 * `mkdocs new [dir-name]` - Create a new project.
 * `mkdocs serve` - Start the live-reloading docs server.
 * `mkdocs build` - Build the documentation site.
 * `mkdocs -h` - Print help message and exit.
 
-## Project layout
+## Project пацанский layout
 
     mkdocs.yml    # The configuration file.
     docs/
         index.md  # The documentation homepage.
-        microservices.md  # Other markdown pages, images and other files.
+        ...       # Other markdown pages, images and other files.

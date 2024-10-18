@@ -1,0 +1,22 @@
+{
+  "name": "itmo_web_python",
+  "version": "1.0.0",
+  "description": "На основе статей по ссылкам после задания и анализа других источников, сформулируйте в виде эссе, или презентации, или доклада \"лучшие практики\" (best practices) использования микросервисной архитектуры при проектировании и разработке информационных систем.",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "html": "html-minifier --remove-comments --collapse-whitespace --input-dir site --output-dir site --file-ext html",
+    "styles": "postcss site/styles.css --use postcss-import --use postcss-csso --no-map -o site/styles.css",
+    "ci": "npm run html && npm run styles"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "html-minifier": "^4.0.0",
+    "postcss-cli": "^11.0.0",
+    "postcss-csso": "^6.0.1",
+    "postcss-import": "^16.1.0"
+  }
+}
