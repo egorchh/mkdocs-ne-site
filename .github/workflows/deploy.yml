@@ -49,7 +49,7 @@ jobs:
       - name: PostCSS processing
         run: |
           npm install postcss postcss-cli autoprefixer
-          npx postcss theme/styles.css --use autoprefixer -o theme/styles.min.css
+          npx postcss site/styles.css --use postcss-import --use postcss-csso --no-map -o site/styles.css
 
       - name: Run CI Scripts
         run: npm run ci
